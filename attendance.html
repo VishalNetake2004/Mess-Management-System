@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Attendance - Mess Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🍽️
+            <span>
+                Mess<span class="highlight">Manage</span>
+            </span>
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="members.html">
+                👥 Members
+            </a>
+
+            <a href="meals.html">
+                🍛 Meals
+            </a>
+
+            <a
+                href="attendance.html"
+                class="active"
+            >
+                📅 Attendance
+            </a>
+
+            <a href="payments.html">
+                💰 Payments
+            </a>
+
+            <a href="reports.html">
+                📊 Reports
+            </a>
+
+            <a href="settings.html">
+                ⚙️ Settings
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <p>Mess Management</p>
+
+            <small>
+                Version 1.0
+            </small>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Attendance
+                </h1>
+
+                <p>
+                    Track daily meal attendance
+                </p>
+
+            </div>
+
+
+            <button
+                id="themeBtn"
+                class="theme-btn"
+            >
+                🌙
+            </button>
+
+        </header>
+
+
+
+        <!-- Attendance Controls -->
+
+        <section class="member-controls">
+
+            <input
+                type="date"
+                id="attendanceDate"
+            >
+
+
+            <select
+                id="attendanceMeal"
+                class="attendance-select"
+            >
+
+                <option value="Breakfast">
+                    🌅 Breakfast
+                </option>
+
+                <option value="Lunch">
+                    ☀️ Lunch
+                </option>
+
+                <option value="Dinner">
+                    🌙 Dinner
+                </option>
+
+            </select>
+
+
+            <button
+                class="add-btn"
+                onclick="saveAttendance()"
+            >
+                💾 Save Attendance
+            </button>
+
+        </section>
+
+
+
+        <!-- Summary -->
+
+        <section class="stats">
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Members
+                    </p>
+
+                    <h2 id="attendanceTotal">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ✅
+                </div>
+
+                <div>
+
+                    <p>
+                        Present
+                    </p>
+
+                    <h2 id="presentCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ❌
+                </div>
+
+                <div>
+
+                    <p>
+                        Absent
+                    </p>
+
+                    <h2 id="absentCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <p>
+                        Attendance %
+                    </p>
+
+                    <h2 id="attendancePercentage">
+                        0%
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Attendance Table -->
+
+        <section class="panel">
+
+
+            <div class="panel-header">
+
+                <h2>
+                    Member Attendance
+                </h2>
+
+                <span id="selectedMeal">
+                    Breakfast
+                </span>
+
+            </div>
+
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Member Name
+                            </th>
+
+                            <th>
+                                Mobile
+                            </th>
+
+                            <th>
+                                Attendance
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody
+                        id="attendanceTable"
+                    >
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <script src="js/attendance.js"></script>
+    <script src="js/thems.js"></script>
+
+</body>
+
+</html>

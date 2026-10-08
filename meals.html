@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meals - Mess Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🍽️ <span>Mess<span class="highlight">Manage</span></span>
+        </div>
+
+        <nav>
+
+            <a href="index.html">🏠 Dashboard</a>
+
+            <a href="members.html">👥 Members</a>
+
+            <a href="meals.html" class="active">🍛 Meals</a>
+
+            <a href="attendance.html">📅 Attendance</a>
+
+            <a href="payments.html">💰 Payments</a>
+
+            <a href="reports.html">📊 Reports</a>
+
+            <a href="settings.html">⚙️ Settings</a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>Mess Management</p>
+            <small>Version 1.0</small>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Meals</h1>
+
+                <p>
+                    Manage daily breakfast, lunch and dinner
+                </p>
+
+            </div>
+
+            <button id="themeBtn" class="theme-btn">
+                🌙
+            </button>
+
+        </header>
+
+
+        <!-- Controls -->
+
+        <section class="member-controls">
+
+            <input
+                type="date"
+                id="searchDate"
+            >
+
+            <button
+                class="add-btn"
+                onclick="openMealForm()"
+            >
+                ➕ Add Meal
+            </button>
+
+        </section>
+
+
+        <!-- Meal Form -->
+
+        <section
+            class="panel member-form"
+            id="mealForm"
+            style="display:none;"
+        >
+
+            <div class="panel-header">
+
+                <h2 id="mealFormTitle">
+                    Add New Meal
+                </h2>
+
+                <button
+                    class="close-btn"
+                    onclick="closeMealForm()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+
+            <form id="mealFormData">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Date</label>
+
+                        <input
+                            type="date"
+                            id="mealDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Meal Type</label>
+
+                        <select
+                            id="mealType"
+                            required
+                        >
+
+                            <option value="">
+                                Select Meal
+                            </option>
+
+                            <option value="Breakfast">
+                                Breakfast
+                            </option>
+
+                            <option value="Lunch">
+                                Lunch
+                            </option>
+
+                            <option value="Dinner">
+                                Dinner
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Menu</label>
+
+                        <input
+                            type="text"
+                            id="mealMenu"
+                            placeholder="Example: Rice, Dal, Roti"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Total Meals</label>
+
+                        <input
+                            type="number"
+                            id="mealQuantity"
+                            placeholder="Enter number of meals"
+                            min="1"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        💾 Save Meal
+                    </button>
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="closeMealForm()"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- Meal Table -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <h2>Meal Records</h2>
+
+                <span id="totalMeals">
+                    0 Records
+                </span>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Date</th>
+
+                            <th>Meal Type</th>
+
+                            <th>Menu</th>
+
+                            <th>Total Meals</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="mealsTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/meals.js"></script>
+    <script src="js/thems.js"></script>
+
+
+</body>
+</html>

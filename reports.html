@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Reports - Mess Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            🍽️
+
+            <span>
+                Mess<span class="highlight">Manage</span>
+            </span>
+
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="members.html">
+                👥 Members
+            </a>
+
+            <a href="meals.html">
+                🍛 Meals
+            </a>
+
+            <a href="attendance.html">
+                📅 Attendance
+            </a>
+
+            <a href="payments.html">
+                💰 Payments
+            </a>
+
+            <a
+                href="reports.html"
+                class="active"
+            >
+                📊 Reports
+            </a>
+
+            <a href="settings.html">
+                ⚙️ Settings
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <p>Mess Management</p>
+
+            <small>
+                Version 1.0
+            </small>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Reports
+                </h1>
+
+                <p>
+                    View mess management reports and summaries
+                </p>
+
+            </div>
+
+            <button
+                id="themeBtn"
+                class="theme-btn"
+            >
+                🌙
+            </button>
+
+        </header>
+
+
+        <!-- Report Cards -->
+
+        <section class="stats">
+
+            <div class="card">
+
+                <div class="card-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Members
+                    </p>
+
+                    <h2 id="reportMembers">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🍛
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Meals
+                    </p>
+
+                    <h2 id="reportMeals">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Collection
+                    </p>
+
+                    <h2 id="reportCollection">
+                        ₹0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <p>
+                        Meals Attendance
+                    </p>
+
+                    <h2 id="reportAttendance">
+                        0%
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Report Grid -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- Meal Summary -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Meal Summary
+                    </h2>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span>
+                        🌅 Breakfast
+                    </span>
+
+                    <strong id="breakfastTotal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span>
+                        ☀️ Lunch
+                    </span>
+
+                    <strong id="lunchTotal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span>
+                        🌙 Dinner
+                    </span>
+
+                    <strong id="dinnerTotal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="report-row total-row">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="mealGrandTotal">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Payment Summary -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Payment Summary
+                    </h2>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span>
+                        ✅ Paid Amount
+                    </span>
+
+                    <strong id="paidTotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span>
+                        ⏳ Pending Amount
+                    </span>
+
+                    <strong id="pendingTotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span>
+                        💳 Payment Records
+                    </span>
+
+                    <strong id="paymentTotal">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="report-row total-row">
+
+                    <span>
+                        Total Amount
+                    </span>
+
+                    <strong id="paymentGrandTotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Attendance Summary -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Attendance Summary
+                </h2>
+
+                <span>
+                    All Recorded Attendance
+                </span>
+
+            </div>
+
+
+            <div class="attendance-report">
+
+                <div>
+
+                    <p>
+                        Total Attendance Records
+                    </p>
+
+                    <h2 id="attendanceRecords">
+                        0
+                    </h2>
+
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Present
+                    </p>
+
+                    <h2
+                        id="attendancePresent"
+                        class="green-text"
+                    >
+                        0
+                    </h2>
+
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Absent
+                    </p>
+
+                    <h2
+                        id="attendanceAbsent"
+                        class="red-text"
+                    >
+                        0
+                    </h2>
+
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Overall %
+                    </p>
+
+                    <h2 id="overallAttendance">
+                        0%
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Member Payment Status -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Member Payment Status
+                </h2>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Member
+                            </th>
+
+                            <th>
+                                Paid Amount
+                            </th>
+
+                            <th>
+                                Pending Amount
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="memberReportTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/reports.js"></script>
+    <script src="js/thems.js"></script>
+
+
+
+</body>
+
+</html>

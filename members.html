@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Members - Mess Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🍽️ <span>Mess<span class="highlight">Manage</span></span>
+        </div>
+
+        <nav>
+
+            <a href="index.html">🏠 Dashboard</a>
+
+            <a href="members.html" class="active">
+                👥 Members
+            </a>
+
+            <a href="meals.html">🍛 Meals</a>
+
+            <a href="attendance.html">📅 Attendance</a>
+
+            <a href="payments.html">💰 Payments</a>
+
+            <a href="reports.html">📊 Reports</a>
+
+            <a href="settings.html">⚙️ Settings</a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>Mess Management</p>
+            <small>Version 1.0</small>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Members</h1>
+
+                <p>
+                    Manage mess members and their information
+                </p>
+
+            </div>
+
+            <button id="themeBtn" class="theme-btn">
+                🌙
+            </button>
+
+        </header>
+
+
+        <!-- Member Controls -->
+
+        <section class="member-controls">
+
+            <input
+                type="text"
+                id="searchMember"
+                placeholder="🔍 Search member..."
+            >
+
+            <button class="add-btn" onclick="openMemberForm()">
+                ➕ Add Member
+            </button>
+
+        </section>
+
+
+        <!-- Member Form -->
+
+        <section
+            class="panel member-form"
+            id="memberForm"
+            style="display: none;"
+        >
+
+            <div class="panel-header">
+
+                <h2 id="formTitle">
+                    Add New Member
+                </h2>
+
+                <button
+                    class="close-btn"
+                    onclick="closeMemberForm()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+
+            <form id="memberFormData">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Full Name</label>
+
+                        <input
+                            type="text"
+                            id="memberName"
+                            placeholder="Enter full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Mobile Number</label>
+
+                        <input
+                            type="tel"
+                            id="memberMobile"
+                            placeholder="Enter mobile number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Room / Address</label>
+
+                        <input
+                            type="text"
+                            id="memberRoom"
+                            placeholder="Enter room or address"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Joining Date</label>
+
+                        <input
+                            type="date"
+                            id="memberDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Payment Status</label>
+
+                        <select id="memberPayment">
+
+                            <option value="Paid">
+                                Paid
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        💾 Save Member
+                    </button>
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="closeMemberForm()"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- Members Table -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <h2>All Members</h2>
+
+                <span id="totalMembers">
+                    0 Members
+                </span>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Name</th>
+
+                            <th>Mobile</th>
+
+                            <th>Room / Address</th>
+
+                            <th>Joining Date</th>
+
+                            <th>Payment</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="membersTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/members.js"></script>
+    <script src="js/thems.js"></script>
+
+    <div id="toast" class="toast"></div>
+
+</body>
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Payments - Mess Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            🍽️
+
+            <span>
+                Mess<span class="highlight">Manage</span>
+            </span>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="members.html">
+                👥 Members
+            </a>
+
+            <a href="meals.html">
+                🍛 Meals
+            </a>
+
+            <a href="attendance.html">
+                📅 Attendance
+            </a>
+
+            <a
+                href="payments.html"
+                class="active"
+            >
+                💰 Payments
+            </a>
+
+            <a href="reports.html">
+                📊 Reports
+            </a>
+
+            <a href="settings.html">
+                ⚙️ Settings
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <p>Mess Management</p>
+
+            <small>
+                Version 1.0
+            </small>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Payments
+                </h1>
+
+                <p>
+                    Manage member fees and payments
+                </p>
+
+            </div>
+
+
+            <button
+                id="themeBtn"
+                class="theme-btn"
+            >
+                🌙
+            </button>
+
+        </header>
+
+
+
+        <!-- Payment Summary -->
+
+        <section class="stats">
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Collected
+                    </p>
+
+                    <h2 id="totalCollected">
+                        ₹0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📋
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Payments
+                    </p>
+
+                    <h2 id="totalPayments">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <p>
+                        Pending Amount
+                    </p>
+
+                    <h2 id="pendingAmount">
+                        ₹0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <p>
+                        Paid Members
+                    </p>
+
+                    <h2 id="paidMembers">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Controls -->
+
+        <section class="member-controls">
+
+            <input
+                type="text"
+                id="searchPayment"
+                placeholder="🔍 Search payment..."
+            >
+
+
+            <button
+                class="add-btn"
+                onclick="openPaymentForm()"
+            >
+                ➕ Add Payment
+            </button>
+
+        </section>
+
+
+
+        <!-- Payment Form -->
+
+        <section
+            class="panel member-form"
+            id="paymentForm"
+            style="display:none;"
+        >
+
+
+            <div class="panel-header">
+
+                <h2 id="paymentFormTitle">
+                    Add New Payment
+                </h2>
+
+                <button
+                    class="close-btn"
+                    onclick="closePaymentForm()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+
+
+            <form id="paymentFormData">
+
+
+                <div class="form-grid">
+
+
+                    <!-- Member -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Member
+                        </label>
+
+                        <select
+                            id="paymentMember"
+                            required
+                        >
+
+                            <option value="">
+                                Select Member
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Amount -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Amount (₹)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="paymentAmount"
+                            placeholder="Enter amount"
+                            min="1"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- Date -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Payment Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="paymentDate"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- Month -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Payment For
+                        </label>
+
+                        <select
+                            id="paymentMonth"
+                            required
+                        >
+
+                            <option value="">
+                                Select Month
+                            </option>
+
+                            <option value="January">
+                                January
+                            </option>
+
+                            <option value="February">
+                                February
+                            </option>
+
+                            <option value="March">
+                                March
+                            </option>
+
+                            <option value="April">
+                                April
+                            </option>
+
+                            <option value="May">
+                                May
+                            </option>
+
+                            <option value="June">
+                                June
+                            </option>
+
+                            <option value="July">
+                                July
+                            </option>
+
+                            <option value="August">
+                                August
+                            </option>
+
+                            <option value="September">
+                                September
+                            </option>
+
+                            <option value="October">
+                                October
+                            </option>
+
+                            <option value="November">
+                                November
+                            </option>
+
+                            <option value="December">
+                                December
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Payment Method -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Payment Method
+                        </label>
+
+                        <select
+                            id="paymentMethod"
+                            required
+                        >
+
+                            <option value="">
+                                Select Method
+                            </option>
+
+                            <option value="Cash">
+                                💵 Cash
+                            </option>
+
+                            <option value="UPI">
+                                📱 UPI
+                            </option>
+
+                            <option value="Card">
+                                💳 Card
+                            </option>
+
+                            <option value="Bank Transfer">
+                                🏦 Bank Transfer
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Status -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Status
+                        </label>
+
+                        <select
+                            id="paymentStatus"
+                            required
+                        >
+
+                            <option value="Paid">
+                                Paid
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        💾 Save Payment
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="closePaymentForm()"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+
+
+        <!-- Payment Table -->
+
+        <section class="panel">
+
+
+            <div class="panel-header">
+
+                <h2>
+                    Payment Records
+                </h2>
+
+                <span id="paymentRecordCount">
+                    0 Records
+                </span>
+
+            </div>
+
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Member
+                            </th>
+
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Month
+                            </th>
+
+                            <th>
+                                Method
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody
+                        id="paymentsTable"
+                    >
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/payments.js"></script>
+    <script src="js/thems.js"></script>
+
+
+
+</body>
+
+</html>
